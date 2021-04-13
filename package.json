@@ -1,0 +1,24 @@
+{
+  "name": "Advanced-React",
+   "version": "1.0.0",
+  "description": "Sick Fits is a web store built with the MERNG stack.",
+  "main": "./backend",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd backend && production keystone start",
+    "install": "cd frontend && npm install",
+    "build": "cd frontend && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tuzosdaniel12/Advanced-React.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tuzosdaniel12/Advanced-React/issues"
+  },
+  "homepage": "https://github.com/Tuzosdaniel12/Advanced-React#readme"
+}
