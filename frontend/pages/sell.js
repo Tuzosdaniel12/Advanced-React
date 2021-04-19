@@ -1,6 +1,8 @@
+import CreateProduct from '../components/CreatProduct';
+
 const SellPage = () => (
   <div>
-    <p>Hello World!</p>
+    <CreateProduct />
   </div>
 );
 

@@ -24,7 +24,7 @@ export default function Header() {
       display: grid;
       grid-template-columns: auto 1fr;
       justify-content: space-between;
-      align-items: center;
+      align-items: stretch;
     }
 
     .sub-bar {
@@ -39,13 +39,12 @@ export default function Header() {
         <Logo>
           <Link href="/">Sick Fits </Link>
         </Logo>
+        <Nav />
       </div>
 
       <div className="dub-bar">
         <p>Search</p>
       </div>
-
-      <Nav />
     </HeaderStyles>
   );
 }
