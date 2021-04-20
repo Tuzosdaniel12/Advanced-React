@@ -1,5 +1,3 @@
-/** @format */
-
 const OrderPage = () => (
   <div>
     <p>Hello World!</p>

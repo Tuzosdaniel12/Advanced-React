@@ -1,33 +1,38 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-props-no-spreading */
+/** @format */
 
-import NProgress from 'nprogress';
-import Router from 'next/router';
-import { ApolloProvider } from '@apollo/client';
-import Page from '../components/Page';
-import '../components/styles/nprogress.css';
-import withData from '../lib/withData';
+import React from "react";
+import Page from "../components/Page";
+import Nprogress from "nprogress";
+import Router from "next/router";
+import "../components/styles/nprogress.css";
+import { ApolloProvider } from "@apollo/client";
+import withData from "../lib/withData";
 
-Router.events.on('routeChangeStart', () => NProgress.start());
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
 
-const MyApp = ({ Component, pageProps, apollo }) => (
-  <ApolloProvider client={apollo}>
-    <Page>
-      <Component {...pageProps} />
-    </Page>
-  </ApolloProvider>
-);
+Router.events.on("routeChangeStart", () => Nprogress.start());
+Router.events.on("routeChangeComplete", () => Nprogress.done());
+Router.events.on("routeChangeError", () => Nprogress.done());
 
-MyApp.getInitialsProps = async ({ Component, ctx }) => {
-  let pageProps = {};
+const MyApp = ({ Component, pageProps, apollo }) => {
+	return (
+		<ApolloProvider client={apollo}>
 
-  if (Component.getInitialsProps) {
-    pageProps = await Component.getInitialsProps(ctx);
-  }
+				<Page>
+					<Component {...pageProps} />
+				</Page>
 
-  pageProps.query = ctx.query;
+		</ApolloProvider>
+	);
+};
+
+MyApp.getInitialProps = async ({ Component, ctx }) => {
+	let pageProps = {};
+	if (Component.getInitialProps) {
+		pageProps = await Component.getInitialProps(ctx);
+	}
+
+	pageProps.query = ctx.query;
+	return { pageProps };
 };
 
 export default withData(MyApp);
